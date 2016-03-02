@@ -1,11 +1,8 @@
 n = 600851475143
 
-def is_prime_number?(num)
-  return false if num < 2
-  2.upto(Math.sqrt(num) + 1).each do |e|
-    return false if num % e == 0
-  end
-  true
+def is_prime_number?(number)
+  return false if number < 2
+  return !2.upto(Math.sqrt(number) + 1).detect {|e| number % e == 0}
 end
 
 max = 2
