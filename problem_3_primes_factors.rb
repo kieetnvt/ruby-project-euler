@@ -2,16 +2,14 @@
 #
 # What is the largest prime factor of the number 600851475143 ?
 #
+
+require "#{Dir.getwd}/prime_factors.rb"
+
 n = 600851475143
-
-def is_prime_number?(number)
-  return false if number < 2
-  return !2.upto(Math.sqrt(number) + 1).detect {|e| number % e == 0}
-end
-
 max = 2
 2.upto(n).each do |e|
-  if is_prime_number?(e) && n % e == 0
+  prime_factor = PrimeFactors.new(e)
+  if prime_factor.is_prime? && n % e == 0
     max = e
     puts "RESULTS: #{max}"
   end
